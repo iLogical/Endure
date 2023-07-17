@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Assets/Game/Characters/Character.cs" id="1_6w42i"]
 [ext_resource type="Texture2D" uid="uid://b2emutq4tqce5" path="res://Assets/Sprites/Player.png" id="2_kjl3x"]
-[ext_resource type="Script" path="res://Assets/Game/Characters/JobManager.cs" id="3_bm5rg"]
+[ext_resource type="Script" path="res://Assets/Game/Characters/JobQueueManager.cs" id="3_x0mq1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a2smo"]
 
 [node name="Character" type="CharacterBody2D"]
-position = Vector2(-1, 0)
+position = Vector2(1, 0)
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -27,5 +27,5 @@ debug_enabled = true
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="JobManager" type="Node2D" parent="."]
-script = ExtResource("3_bm5rg")
+[node name="JobQueueManager" type="Node2D" parent="."]
+script = ExtResource("3_x0mq1")

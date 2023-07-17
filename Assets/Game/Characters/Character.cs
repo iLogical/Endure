@@ -6,7 +6,7 @@ public partial class Character : CharacterBody2D
 {
 	[Export] private int Speed { get; set; }
 	private NavigationAgent2D _navigationAgent2D;
-	private JobManager _jobManager;
+	private JobQueueManager _jobQueueManager;
 
 	public Character()
 	{
@@ -15,8 +15,8 @@ public partial class Character : CharacterBody2D
 
 	public override void _Ready()
 	{
-		_jobManager = GetNode<JobManager>("JobManager");
-		_jobManager.DestinationChanged += OnTargetPositionChanged;
+		_jobQueueManager = GetNode<JobQueueManager>("JobQueueManager");
+		_jobQueueManager.DestinationChanged += OnTargetPositionChanged;
 		_navigationAgent2D = GetNode<NavigationAgent2D>("NavigationAgent2D");
 	}
 
@@ -27,6 +27,11 @@ public partial class Character : CharacterBody2D
 		Velocity = direction * Speed;
 
 		MoveAndSlide();
+
+		if (!_navigationAgent2D.IsNavigationFinished())
+			return;
+
+		_jobQueueManager.CompleteJob();
 	}
 
 	private void OnTargetPositionChanged(object _, Vector2 newTarget)
