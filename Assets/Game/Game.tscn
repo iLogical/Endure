@@ -33,3 +33,7 @@ script = ExtResource("4_cv73o")
 [node name="Character" parent="." node_paths=PackedStringArray("JobManager") instance=ExtResource("2_3pyl3")]
 position = Vector2(536, 267)
 JobManager = NodePath("../Managers/JobManager")
+
+[node name="Character2" parent="." node_paths=PackedStringArray("JobManager") instance=ExtResource("2_3pyl3")]
+position = Vector2(266, 532)
+JobManager = NodePath("../Managers/JobManager")
