@@ -3,10 +3,11 @@ using Godot;
 
 namespace Endure.Assets.Game.Characters;
 
-public partial class JobQueueManager : Node2D
+[GlobalClass]
+public partial class JobQueueManager : Node
 {
-	private Vector2? _currentJob;
 	private JobManager _jobManager;
+	private Vector2? _currentJob;
 	public event EventHandler<Vector2> DestinationChanged;
 
 	public JobQueueManager()
@@ -16,14 +17,14 @@ public partial class JobQueueManager : Node2D
 
 	public override void _Ready()
 	{
-		_jobManager = Managers.Instance.Get<JobManager>();
+		_jobManager = GetParent<Character>().JobManager;
 	}
 
 	public override void _Process(double delta)
 	{
-		if(!_jobManager.HasJobs())
+		if (!_jobManager.HasJobs())
 			return;
-		
+
 		_currentJob ??= _jobManager.TakeJob();
 		OnDestinationChanged(_currentJob.Value);
 	}

@@ -2,9 +2,9 @@ using Godot;
 
 namespace Endure.Assets.Game.Characters;
 
-[GlobalClass]
 public partial class Character : CharacterBody2D
 {
+	[Export] public JobManager JobManager { get; private set; }
 	[Export] private int Speed { get; set; }
 	private NavigationAgent2D _navigationAgent2D;
 	private JobQueueManager _jobQueueManager;
