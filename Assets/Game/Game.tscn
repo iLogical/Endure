@@ -14,7 +14,7 @@ script = ExtResource("1_nm3n1")
 [node name="BuildingManager" type="Node2D" parent="Managers"]
 script = ExtResource("2_kh2xv")
 
-[node name="JobManager" type="Node2D" parent="Managers"]
+[node name="JobManager" type="Node" parent="Managers"]
 script = ExtResource("1_28quh")
 
 [node name="Label" type="Label" parent="."]

@@ -3,7 +3,7 @@ using Godot;
 
 namespace Endure.Assets.Game;
 
-public partial class JobManager : Node2D
+  public partial class JobManager : Node
 {
 	private readonly Queue<Vector2> _jobPositions;
 

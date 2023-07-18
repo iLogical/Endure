@@ -2,6 +2,7 @@ using Godot;
 
 namespace Endure.Assets.Game.Characters;
 
+[GlobalClass]
 public partial class Character : CharacterBody2D
 {
 	[Export] private int Speed { get; set; }
